@@ -1,0 +1,31 @@
+{
+  "name": "trainfactsapi",
+  "version": "1.0.0",
+  "description": "Fun facts about Trains!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZachLevien/trainfactsapi.git"
+  },
+  "author": "Zach Levien",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZachLevien/trainfactsapi/issues"
+  },
+  "homepage": "https://github.com/ZachLevien/trainfactsapi#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "monk": "^7.3.2",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.3.5",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
