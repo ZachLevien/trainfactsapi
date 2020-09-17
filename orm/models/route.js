@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     id:{
       allowNull: false,
       primaryKey: true,
-      type: sequelize.UUID,
+      type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
     routeName: DataTypes.STRING,
@@ -29,6 +29,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Route',
   });
-  Route.hasMany(Railroad);
   return Route;
 };

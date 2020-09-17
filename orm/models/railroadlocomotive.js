@@ -20,7 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'RailroadLocomotive',
   });
-  RailroadLocomotive.hasOne(Locomotive);
-  RailroadLocomotive.hasOne(Railroad);
   return RailroadLocomotive;
 };

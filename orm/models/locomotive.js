@@ -9,17 +9,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      
+
     }
   };
   Locomotive.init({
     id:{
       allowNull: false,
       primaryKey: true,
-      type: sequelize.UUID,
+      type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
     locomotiveName: DataTypes.STRING,
+    modelNumber: DataTypes.STRING,
     manufacturerId: DataTypes.UUID,
     inServiceAt: DataTypes.DATEONLY,
     outServiceAt: DataTypes.DATEONLY
@@ -27,6 +28,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Locomotive',
   });
-  Locomotive.hasMany(Manufacturer);
   return Locomotive;  
 };

@@ -1,4 +1,7 @@
 'use strict';
+
+const { Locomotive, Manufacturer } = require('../models');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Locomotives', {
@@ -8,6 +11,9 @@ module.exports = {
         type: Sequelize.UUID
       },
       locomotiveName: {
+        type: Sequelize.STRING
+      },
+      modelNumber: {
         type: Sequelize.STRING
       },
       manufacturerId: {
@@ -29,8 +35,19 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+
+    const baldwin = await Manufacturer.findOne({ where: { manufacturerName: 'Baldwin Locomotive Works' }});
+
+    await Locomotive.bulkCreate([
+      { 
+        locomotiveName: 'Roger E. Broggie', 
+        modelNumber: 'Ten Wheeler (4-6-0)',
+        manufacturerId: baldwin.id,
+        inServiceAt: new Date('1925-01-02')
+      }
+    ]);
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Locomotives');
+    
   }
 };
